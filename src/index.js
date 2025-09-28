@@ -1,18 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import Navbar from './components/navbar/Navbar';
 import reportWebVitals from './reportWebVitals';
+import { Routes,Route,BrowserRouter } from "react-router-dom";
+import Navbar from './components/navbar/Navbar';
 import Carousel from './components/carousel/Carousel';
+
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-   <Navbar/>
-  <App/>
-  <Carousel/>
+    <BrowserRouter>
+  <Routes>
+      <Route path="/App" element={<App/>}/>
+     <Route path="/navbar" element={<Navbar/>}/>
+    <Route path="/Carousel" element={<Carousel/>}/>
+
+     <Route path="/*" element={<App/>}/>
+  </Routes>
+
+  </BrowserRouter>
   </React.StrictMode>
 );
 
